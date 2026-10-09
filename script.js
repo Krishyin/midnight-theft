@@ -1,4 +1,3 @@
-<CodeBlock language="javascript" editable>
 const startButton = document.querySelector("#start-button");
 const intro = document.querySelector("#intro");
 const crimeScene = document.querySelector("#crime-scene");
