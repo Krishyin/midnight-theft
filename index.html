@@ -15,34 +15,60 @@
             <span class="case-number">CASE NO. 001</span>
         </header>
 
-        <section class="hero">
-            <p class="eyebrow">AN INTERACTIVE DETECTIVE MYSTERY</p>
+        <section class="hero" id="intro">
+    <p class="eyebrow">AN INTERACTIVE DETECTIVE MYSTERY</p>
 
-            <h1>
-                THE<br>
-                <span>MIDNIGHT</span><br>
-                THEFT
-            </h1>
+    <h1>
+        THE<br>
+        <span>MIDNIGHT</span><br>
+        THEFT
+    </h1>
 
-            <div class="gold-line"></div>
+    <div class="gold-line"></div>
 
-            <p class="story">
-                A priceless diamond has vanished from a locked mansion.
-                Four people were inside. Every one of them has something
-                to hide.
-            </p>
+    <p class="story">
+        A priceless diamond has vanished from a locked mansion.
+        Four people were inside. Every one of them has something
+        to hide.
+    </p>
 
-            <p class="challenge">
-                ONE CRIME. FOUR SUSPECTS. CAN YOU FIND THE TRUTH?
-            </p>
+    <p class="challenge">
+        ONE CRIME. FOUR SUSPECTS. CAN YOU FIND THE TRUTH?
+    </p>
 
-            <button class="start-button" type="button">
-                <span>Start Investigation</span>
-                <span class="arrow">→</span>
-            </button>
+    <button class="start-button" id="start-button" type="button">
+        <span>Start Investigation</span>
+        <span class="arrow">→</span>
+    </button>
 
-            <p class="footnote">YOUR INSTINCTS ARE YOUR ONLY WEAPON.</p>
-        </section>
+    <p class="footnote">YOUR INSTINCTS ARE YOUR ONLY WEAPON.</p>
+</section>
+
+<section class="hero" id="crime-scene" hidden>
+    <p class="eyebrow">CASE NO. 001 · ACTIVE INVESTIGATION</p>
+
+    <h2>The Missing Diamond</h2>
+
+    <div class="gold-line"></div>
+
+    <p class="story">
+        At exactly midnight, the Blackwood Mansion's priceless
+        Star of the East diamond disappeared from a locked display
+        room. The door was locked, and the only key was with the
+        mansion's owner.
+    </p>
+
+    <p class="challenge">FOUR PEOPLE. ONE THIEF. EVERYONE IS A SUSPECT.</p>
+
+    <p class="story">What would you like to investigate first?</p>
+
+    <button class="start-button" type="button" onclick="alert('Suspects are coming in our next step!')">
+        <span>Examine the Suspects</span>
+        <span class="arrow">→</span>
+    </button>
+</section>
+</escape>
+
 
         <footer class="bottom-bar">
             <span>CONFIDENTIAL CASE FILE</span>
