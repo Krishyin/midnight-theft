@@ -1,5 +1,9 @@
-const startButton = document.querySelector(".start-button");
+<CodeBlock language="javascript" editable>
+const startButton = document.querySelector("#start-button");
+const intro = document.querySelector("#intro");
+const crimeScene = document.querySelector("#crime-scene");
 
 startButton.addEventListener("click", function () {
-    alert("Your investigation begins now, Detective!");
+    intro.hidden = true;
+    crimeScene.hidden = false;
 });
