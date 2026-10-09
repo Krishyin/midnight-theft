@@ -1,39 +1,307 @@
+:root {
+    --bg: #0b0d12;
+    --panel: #12151c;
+    --gold: #d8b56d;
+    --gold-light: #f0d9a5;
+    --text: #f5f1e8;
+    --muted: #a6a5a1;
+    --line: rgba(216, 181, 109, 0.28);
+}
+
 * {
     box-sizing: border-box;
 }
+
+html {
+    min-height: 100%;
+    background: var(--bg);
+}
+
 body {
     margin: 0;
     min-height: 100vh;
+    min-height: 100dvh;
+    background:
+        radial-gradient(
+            ellipse at 50% 40%,
+            rgba(91, 72, 43, 0.16),
+            transparent 58%
+        ),
+        var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.game-screen {
+    width: min(100%, 1440px);
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0 auto;
+    padding: 32px 7%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle decorative background */
+
+.game-screen::before {
+    content: "";
+    position: absolute;
+    top: 12%;
+    right: -100px;
+    width: 460px;
+    height: 460px;
+    border: 1px solid rgba(216, 181, 109, 0.08);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 45px rgba(216, 181, 109, 0.025),
+        0 0 0 90px rgba(216, 181, 109, 0.018);
+    pointer-events: none;
+}
+
+.top-bar,
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 24px;
-    background: #101116;
-    color: #f5f0e6;
-    font-family: Georgia, serif;
-    text-align: center;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
 }
-h1 {
-    color: #d8b56d;
-    font-size: clamp(2.2rem, 8vw, 4rem);
-    margin-bottom: 24px;
+
+.top-bar {
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
 }
-p {
-    color: #c7c5c0;
-    font-size: 1.05rem;
+
+.brand {
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+}
+
+.brand span {
+    color: var(--gold);
+}
+
+.case-number,
+.bottom-bar {
+    color: var(--muted);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+}
+
+.hero {
+    width: 100%;
+    max-width: 720px;
+    margin: auto 0;
+    padding: 72px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.eyebrow {
+    margin: 0 0 24px;
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
     line-height: 1.8;
 }
-button {
-    margin-top: 24px;
-    padding: 15px 28px;
-    border: 1px solid #d8b56d;
-    border-radius: 6px;
-    background: #d8b56d;
-    color: #101116;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
+
+h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(4rem, 9vw, 8rem);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.055em;
 }
-button:hover {
-    background: #f0d69b;
+
+h1 span {
+    color: var(--gold);
+}
+
+.gold-line {
+    width: 76px;
+    height: 2px;
+    margin: 30px 0 24px;
+    background: var(--gold);
+}
+
+.story {
+    max-width: 430px;
+    margin: 0;
+    color: #cbc9c3;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.12rem;
+    line-height: 1.9;
+}
+
+.challenge {
+    margin: 24px 0 28px;
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    line-height: 1.8;
+}
+
+.start-button {
+    width: min(100%, 330px);
+    min-height: 58px;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    border: 1px solid var(--gold);
+    border-radius: 3px;
+    background: var(--gold);
+    color: #17140e;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.start-button:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+}
+
+.start-button:focus-visible {
+    outline: 3px solid var(--text);
+    outline-offset: 4px;
+}
+
+.arrow {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.footnote {
+    margin: 22px 0 0;
+    color: #777873;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    line-height: 1.8;
+}
+
+.bottom-bar {
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+}
+
+/* Tablet screens */
+
+@media (max-width: 768px) {
+    .game-screen {
+        padding: 24px 6%;
+    }
+
+    .hero {
+        padding: 64px 0;
+    }
+
+    h1 {
+        font-size: clamp(3.7rem, 12vw, 6rem);
+    }
+
+    .game-screen::before {
+        top: 22%;
+        right: -250px;
+    }
+}
+
+/* Mobile screens */
+
+@media (max-width: 480px) {
+    .game-screen {
+        padding: 20px 22px;
+    }
+
+    .top-bar {
+        padding-bottom: 18px;
+    }
+
+    .brand {
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+    }
+
+    .case-number {
+        font-size: 0.58rem;
+        letter-spacing: 0.09em;
+    }
+
+    .hero {
+        padding: 58px 0;
+    }
+
+    .eyebrow {
+        max-width: 270px;
+        margin-bottom: 22px;
+        font-size: 0.64rem;
+        letter-spacing: 0.15em;
+    }
+
+    h1 {
+        font-size: clamp(3.45rem, 15vw, 4.7rem);
+        line-height: 0.94;
+        letter-spacing: -0.06em;
+    }
+
+    .gold-line {
+        margin: 25px 0 20px;
+    }
+
+    .story {
+        font-size: 1.02rem;
+        line-height: 1.8;
+    }
+
+    .challenge {
+        margin: 22px 0 24px;
+        font-size: 0.65rem;
+        letter-spacing: 0.09em;
+    }
+
+    .start-button {
+        width: 100%;
+        min-height: 58px;
+    }
+
+    .footnote {
+        font-size: 0.59rem;
+        letter-spacing: 0.09em;
+    }
+
+    .bottom-bar {
+        font-size: 0.55rem;
+        letter-spacing: 0.08em;
+    }
+
+    .game-screen::before {
+        top: 30%;
+        right: -320px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
 }
